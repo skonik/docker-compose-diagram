@@ -1,0 +1,6 @@
+click==8.0.1
+diagrams==0.17.0
+graphviz==0.13.2
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+PyYAML==5.3.1
