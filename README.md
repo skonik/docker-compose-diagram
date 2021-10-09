@@ -143,3 +143,6 @@ $ python3 main.py --file docker-compose.dev.yml --direction=TB
 ``` 
 will create the following `.png` file
 ![docker-compose.png](./examples/docker-compose.png)
+
+## Use cases
+Possibly could be helpful for docker-based project documentation.
