@@ -6,7 +6,7 @@ from diagrams.programming.framework import Django, Flask
 
 
 class Label:
-    key = 'compose_diagram.icon'
+    key = 'docker_compose_diagram.icon'
     pattern = r''
     diagram_class = None
 
