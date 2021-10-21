@@ -1,11 +1,15 @@
 # docker-compos-diagram
 Script drawing a diagram of your docker-compose file
 
+![example.png](./examples/example.png)
+
+
 ## Installation
 `$ python3 -m venv venv && . venv/bin/activate && pip install -r requirements.txt`
 
 
 ## Description
+
 Let's say we have the following docker-compose file:
 
 ```yaml
@@ -145,4 +149,7 @@ will create the following `.png` file
 ![docker-compose.png](./examples/docker-compose.png)
 
 ## Use cases
-Possibly could be helpful for docker-based project documentation.
+
+* project documentation;
+* catching dependencies bugs in your docker-compose file;
+
