@@ -2,7 +2,7 @@
 name = "docker-compose-diagram"
 version = "0.1.0"
 description = ""
-authors = ["Skonik <s.konik.jobk@gmail.com>"]
+authors = ["Skonik <s.konik.dev@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
