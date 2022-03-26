@@ -1,0 +1,1 @@
+from docker_compose_diagram.cli import process_cli

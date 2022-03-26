@@ -4,10 +4,6 @@ Script drawing a diagram of your docker-compose file
 ![example.png](./examples/example.png)
 
 
-## Installation
-`$ python3 -m venv venv && . venv/bin/activate && pip install -r requirements.txt`
-
-
 ## Description
 
 Let's say we have the following docker-compose file:
@@ -140,10 +136,16 @@ volumes:
 
 ```
 
-Running the command 
+## Install
+
+```
+pip install docker-compose-diagram
+```
+
+## Running the command 
 
 ```sh
-$ python3 main.py --file docker-compose.dev.yml --direction=TB
+$ compose-diagram --file docker-compose.dev.yml --direction=TB
 ``` 
 will create the following `.png` file
 ![docker-compose.png](./examples/docker-compose.png)
