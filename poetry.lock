@@ -30,6 +30,17 @@ graphviz = ">=0.13.2,<0.17.0"
 jinja2 = ">=2.10,<3.0"
 
 [[package]]
+name = "dockerfile-parse"
+version = "1.2.0"
+description = "Python library for Dockerfile manipulation"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+
+[[package]]
 name = "graphviz"
 version = "0.16"
 description = "Simple Python interface for Graphviz"
@@ -72,10 +83,18 @@ category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
+[[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "fc40f7b3a19107ab623c8e40ba323fc9bf1813bd0c1bf84c5ebde3658b63f70c"
+content-hash = "2898ca8c29b93cab71b0bda82f501f86d14a3512fb7842303666517235386dc9"
 
 [metadata.files]
 click = [
@@ -89,6 +108,10 @@ colorama = [
 diagrams = [
     {file = "diagrams-0.20.0-py3-none-any.whl", hash = "sha256:395391663b4d3f2d3e3614797402ca99494e00baf3926f5c9e72856d34cafedd"},
     {file = "diagrams-0.20.0.tar.gz", hash = "sha256:a50743ed9274e194e7898820f69aa12868ae217003580ef9e7d0285132c9674a"},
+]
+dockerfile-parse = [
+    {file = "dockerfile-parse-1.2.0.tar.gz", hash = "sha256:07e65eec313978e877da819855870b3ae47f3fac94a40a965b9ede10484dacc5"},
+    {file = "dockerfile_parse-1.2.0-py2.py3-none-any.whl", hash = "sha256:c3fc8f491e1af8cb5f9e23ea6437a2913467b88a4be143095f150330b090be7e"},
 ]
 graphviz = [
     {file = "graphviz-0.16-py2.py3-none-any.whl", hash = "sha256:3cad5517c961090dfc679df6402a57de62d97703e2880a1a46147bb0dc1639eb"},
@@ -154,4 +177,8 @@ pyyaml = [
     {file = "PyYAML-5.3.1-cp39-cp39-win32.whl", hash = "sha256:ad9c67312c84def58f3c04504727ca879cb0013b2517c85a9a253f0cb6380c0a"},
     {file = "PyYAML-5.3.1-cp39-cp39-win_amd64.whl", hash = "sha256:6034f55dab5fea9e53f436aa68fa3ace2634918e8b5994d82f3621c04ff5ed2e"},
     {file = "PyYAML-5.3.1.tar.gz", hash = "sha256:b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"},
+]
+six = [
+    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
+    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
 ]

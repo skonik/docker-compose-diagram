@@ -1,4 +1,5 @@
 import re
+from os import path
 
 from diagrams.aws.database import Dynamodb
 from diagrams.aws.integration import SNS, SQS
@@ -6,7 +7,9 @@ from diagrams.generic.compute import Rack
 from diagrams.onprem.database import PostgreSQL, MySQL
 from diagrams.onprem.inmemory import Redis
 from diagrams.onprem.network import Nginx
-from diagrams.programming.language import Python
+from diagrams.onprem.queue import RabbitMQ
+from diagrams.programming.language import Python, Ruby, Go
+from dockerfile_parse import DockerfileParser
 
 from .labels import process_labels
 
@@ -61,6 +64,21 @@ class DynamoDBImage(ImageRenderer):
     diagram_class = Dynamodb
 
 
+class RubbyImage(ImageRenderer):
+    pattern = r'ruby'
+    diagram_class = Ruby
+
+
+class GolangImage(ImageRenderer):
+    pattern = r'golang'
+    diagram_class = Go
+
+
+class RabbitMQImage(ImageRenderer):
+    pattern = r'rabbitmq'
+    diagram_class = RabbitMQ
+
+
 drawn_services = dict()
 
 
@@ -73,10 +91,31 @@ def draw_dependency(source, goal):
     drawn_services[source] >> drawn_services[goal]
 
 
+def read_dockerfile_image(service_info):
+    build = service_info.get('build', {})
+    context = build.get('context')
+    if context is None:
+        return None
+
+    dockerfile_path = build.get('dockerfile')
+    if dockerfile_path is None:
+        dockerfile_path = path.join(context, 'Dockerfile')
+    else:
+        dockerfile_path = path.join(context, dockerfile_path)
+
+    dfp = DockerfileParser()
+    with open(dockerfile_path, 'r') as file:
+        dfp.content = file.read()
+
+    return dfp.baseimage
+
+
 def render_image_icon(service_name, service_info):
     global drawn_services
 
     image_name = service_info.get('image')
+    if image_name is None:
+        image_name = read_dockerfile_image(service_info=service_info)
 
     image_from_label = process_labels(service_name=service_name, service_info=service_info)
     if image_from_label:
@@ -96,7 +135,9 @@ def render_image_icon(service_name, service_info):
                 icon_instance = subclass().render(service_name=service_name)
                 break
         else:
-            icon_instance = DEFAULT_ICON_CLASS(service_name)
+            icon_instance = DEFAULT_ICON_CLASS(
+                service_name,
+            )
 
         drawn_services[service_name] = icon_instance
 
