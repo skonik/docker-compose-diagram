@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docker-compose-diagram"
-version = "0.1.2.5"
+version = "0.2.0"
 description = ""
 authors = ["Skonik <s.konik.dev@gmail.com>"]
 
@@ -10,6 +10,7 @@ PyYAML = "5.3.1"
 diagrams = "^0.20.0"
 click = "^8.0.3"
 dockerfile-parse = "^1.2.0"
+rich = "^12.2.0"
 
 [tool.poetry.dev-dependencies]
 

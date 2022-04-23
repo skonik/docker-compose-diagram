@@ -1,10 +1,22 @@
 # docker-compos-diagram
 Script drawing a diagram of your docker-compose file
 
-![example.png](./examples/example.png)
+## Installation
+
+Please install (graphviz)[https://graphviz.gitlab.io/download/].
+Then install this util from pypi via pip or other package manager.
+```
+pip install docker-compose-diagram
+```
+
+## Usage
+
+```sh
+$ compose-diagram --file docker-compose.yml --direction=TB --nodesep=1.2
+```
 
 
-## Description
+## Example
 
 Let's say we have the following docker-compose file:
 
@@ -35,7 +47,7 @@ services:
       - "8000:8000"
     command: runserver
     labels:
-      "compose_diagram.icon": "django"
+      "docker_compose_diagram.icon": "django"
 
 
   db:
@@ -59,7 +71,7 @@ services:
     volumes:
       - ./minio_data:/data
     labels:
-      "compose_diagram.icon": "s3"
+      "docker_compose_diagram.icon": "s3"
 
 
   celery-worker:
@@ -77,7 +89,7 @@ services:
       - db
       - sqs
     labels:
-      "compose_diagram.icon": "celery"
+      "docker_compose_diagram.icon": "celery"
 
 
   celery-beat:
@@ -95,7 +107,7 @@ services:
       - db
       - sqs
     labels:
-      "compose_diagram.icon": "celery"
+      "docker_compose_diagram.icon": "celery"
 
   sqs:
     image: roribio16/alpine-sqs
@@ -136,17 +148,6 @@ volumes:
 
 ```
 
-## Install
-
-```
-pip install docker-compose-diagram
-```
-
-## Running the command 
-
-```sh
-$ compose-diagram --file docker-compose.dev.yml --direction=TB
-``` 
 will create the following `.png` file
 ![docker-compose.png](./examples/docker-compose.png)
 
