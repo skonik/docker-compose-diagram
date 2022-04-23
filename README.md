@@ -38,7 +38,6 @@ services:
       - db
       - redis
       - dynamodb
-      - sns
       - s3_minio
     working_dir: "/app/backend"
     expose:
@@ -48,6 +47,9 @@ services:
     command: runserver
     labels:
       "docker_compose_diagram.icon": "django"
+      "docker_compose_diagram.cluster": "EC2 Instance"
+      "docker_compose_diagram.description": "provides REST API"
+
 
 
   db:
@@ -58,6 +60,11 @@ services:
     restart: unless-stopped
     ports:
       - "3306:3306"
+    labels:
+      "docker_compose_diagram.icon": "mysql"
+      "docker_compose_diagram.cluster": "EC2 Instance"
+      "docker_compose_diagram.description": "main database"
+
 
 
   s3_minio:
@@ -72,6 +79,7 @@ services:
       - ./minio_data:/data
     labels:
       "docker_compose_diagram.icon": "s3"
+      "docker_compose_diagram.description": "stores images"
 
 
   celery-worker:
@@ -87,9 +95,11 @@ services:
     restart: unless-stopped
     depends_on:
       - db
-      - sqs
+      - redis
     labels:
       "docker_compose_diagram.icon": "celery"
+      "docker_compose_diagram.cluster": "EC2 Instance"
+      "docker_compose_diagram.description": "runs background jobs"
 
 
   celery-beat:
@@ -105,17 +115,12 @@ services:
     restart: unless-stopped
     depends_on:
       - db
-      - sqs
+      - redis
     labels:
       "docker_compose_diagram.icon": "celery"
+      "docker_compose_diagram.cluster": "EC2 Instance"
+      "docker_compose_diagram.description": "schedules background jobs"
 
-  sqs:
-    image: roribio16/alpine-sqs
-    ports:
-      - 9324:9324
-      - 9325:9325
-    volumes:
-      - ./sqs/elasticmq.conf:/opt/config/elasticmq.conf
 
 
   dynamodb:
@@ -127,14 +132,9 @@ services:
     volumes:
       - "./dynamodb:/home/dynamodblocal/data"
     working_dir: /home/dynamodblocal
+    labels:
+      "docker_compose_diagram.description": "stores sms codes"
 
-  sns:
-    image: s12v/sns
-    container_name: dev_sns
-    ports:
-      - "9911:9911"
-    depends_on:
-      - sqs
 
   redis:
     image: redis:alpine
@@ -142,6 +142,10 @@ services:
     restart: unless-stopped
     ports:
       - "6379:6379"
+    labels:
+      "docker_compose_diagram.cluster": "EC2 Instance"
+      "docker_compose_diagram.description": "used as broker"
+
 
 volumes:
   mysql_data:
