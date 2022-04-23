@@ -1,9 +1,9 @@
-# docker-compos-diagram
+# docker-compose-diagram
 Script drawing a diagram of your docker-compose file
 
 ## Installation
 
-Please install (graphviz)[https://graphviz.gitlab.io/download/].
+Please install [graphviz](https://graphviz.gitlab.io/download/).
 Then install this util from pypi via pip or other package manager.
 ```
 pip install docker-compose-diagram
