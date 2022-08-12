@@ -7,7 +7,7 @@ from diagrams.onprem.inmemory import Redis
 from diagrams.onprem.network import Nginx, Traefik, Caddy
 from diagrams.onprem.queue import Celery, Kafka
 from diagrams.onprem.queue import RabbitMQ
-from diagrams.programming.framework import Django, Flask, Rails, React, Vue
+from diagrams.programming.framework import Django, Flask, Rails, React, Vue, FastAPI
 from diagrams.programming.language import (
     Python,
     Ruby,
@@ -157,3 +157,8 @@ class TraefikImage(DockerImagePattern):
 class CaddyImage(DockerImagePattern):
     pattern = r'caddy'
     diagram_render_class = Caddy
+
+
+class FastAPIImage(DockerImagePattern):
+    pattern = r'fastapi'
+    diagram_render_class = FastAPI
