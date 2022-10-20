@@ -1,15 +1,17 @@
 import sys
-from typing import Dict, Any
+from typing import Any, Dict
 
 import yaml
 from diagrams import Cluster, Diagram
 
-from docker_compose_diagram.docker_compose.services import DockerComposeServiceStorage, DockerComposeService
-from docker_compose_diagram.docker_images.utils import determine_diagram_render_class, determine_image_name
+from docker_compose_diagram.docker_compose.services import (
+    DockerComposeService, DockerComposeServiceStorage)
+from docker_compose_diagram.docker_images.utils import (
+    determine_diagram_render_class, determine_image_name)
 
 
 def collect_services_into_storage(
-        docker_compose_parsed: Dict[str, Any],
+    docker_compose_parsed: Dict[str, Any],
 ) -> DockerComposeServiceStorage:
     diagram_nodes_storage = DockerComposeServiceStorage()
     for service_name, service_info in docker_compose_parsed["services"].items():
@@ -55,11 +57,11 @@ def render_dependencies(storage: DockerComposeServiceStorage):
 
 
 def pars_yaml_file(file_path: str) -> Dict[str, Any]:
-    with open(file_path, 'r') as stream:
+    with open(file_path, "r") as stream:
         try:
             parsed_yaml_structure = yaml.safe_load(stream)
         except yaml.YAMLError:
-            print('Failed to parse file')
+            print("Failed to parse file")
             sys.exit()
 
     return parsed_yaml_structure
@@ -69,7 +71,9 @@ def draw(file, direction, graph_attr):
     docker_compose_parsed = pars_yaml_file(file_path=file)
     diagram_nodes_storage = collect_services_into_storage(docker_compose_parsed)
 
-    with Diagram("docker-compose", show=False, direction=direction, graph_attr=graph_attr):
+    with Diagram(
+        "docker-compose", show=False, direction=direction, graph_attr=graph_attr
+    ):
         with Cluster(file):
             render_clustered_services(storage=diagram_nodes_storage)
             render_not_clustered_services(storage=diagram_nodes_storage)

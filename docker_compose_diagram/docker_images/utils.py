@@ -1,6 +1,6 @@
 import re
 from os import path
-from typing import Type, Union, Dict, Any, Optional
+from typing import Any, Dict, Optional, Type, Union
 
 from diagrams import Node
 from diagrams.generic.compute import Rack
@@ -12,28 +12,28 @@ DEFAULT_ICON_CLASS = Rack
 
 
 def read_dockerfile_image(service_info):
-    build = service_info.get('build', {})
-    context = build.get('context')
+    build = service_info.get("build", {})
+    context = build.get("context")
     if context is None:
         return None
 
-    dockerfile_path = build.get('dockerfile')
+    dockerfile_path = build.get("dockerfile")
     if dockerfile_path is None:
-        dockerfile_path = path.join(context, 'Dockerfile')
+        dockerfile_path = path.join(context, "Dockerfile")
     else:
         dockerfile_path = path.join(context, dockerfile_path)
 
     dfp = DockerfileParser()
-    with open(dockerfile_path, 'r') as file:
+    with open(dockerfile_path, "r") as file:
         dfp.content = file.read()
 
     return dfp.baseimage
 
 
 def determine_image_name(
-        service_info: Dict[str, Any],
+    service_info: Dict[str, Any],
 ) -> Optional[str]:
-    image_name = service_info.get('image')
+    image_name = service_info.get("image")
     if image_name is None:
         image_name = read_dockerfile_image(service_info=service_info)
 
@@ -41,7 +41,7 @@ def determine_image_name(
 
 
 def determine_diagram_render_class(
-        image_name: str,
+    image_name: str,
 ) -> Union[Type[DockerImagePattern], Type[Node]]:
     if image_name is None:
         return DEFAULT_ICON_CLASS
