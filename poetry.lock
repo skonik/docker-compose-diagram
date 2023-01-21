@@ -125,15 +125,16 @@ test = ["hypothesis (==3.55.3)", "flake8 (==3.7.8)"]
 
 [[package]]
 name = "diagrams"
-version = "0.21.1"
+version = "0.23.3"
 description = "Diagram as Code"
 category = "main"
 optional = false
-python-versions = ">=3.6,<4.0"
+python-versions = ">=3.7,<4.0"
 
 [package.dependencies]
-graphviz = ">=0.13.2,<0.20.0"
+graphviz = ">=0.13.2,<0.21.0"
 jinja2 = ">=2.10,<4.0"
+typed-ast = ">=1.5.4,<2.0.0"
 
 [[package]]
 name = "dockerfile-parse"
@@ -698,7 +699,7 @@ python-versions = ">=3.7"
 name = "typed-ast"
 version = "1.5.4"
 description = "a fork of Python 2 and 3 ast modules with type comment support"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -738,7 +739,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "a3750abc33bd9a5af48fb862476230a04d8137d8d3db3d218e5711bf56899305"
+content-hash = "66bfb0948b43ab0dcefb09aa6adc7b40d152de1e6ed483796013ab220a949bde"
 
 [metadata.files]
 alabaster = [
@@ -801,8 +802,8 @@ commonmark = [
     {file = "commonmark-0.9.1.tar.gz", hash = "sha256:452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"},
 ]
 diagrams = [
-    {file = "diagrams-0.21.1-py3-none-any.whl", hash = "sha256:1d0fea187ed76136dadccf943da914dd9974ebdd3cbb993f4283ec8f51cf90f2"},
-    {file = "diagrams-0.21.1.tar.gz", hash = "sha256:732caa4e61113a06b9a80965be6171c4c5858f3570b5b1f5ba52304a6eeade60"},
+    {file = "diagrams-0.23.3-py3-none-any.whl", hash = "sha256:c497094f9d3600a94bdcfb62b6daf331d2eb7f9b355246e548dae7a4b5c97be0"},
+    {file = "diagrams-0.23.3.tar.gz", hash = "sha256:543c707c36a2c896dfdf8f23e993a9c7ae48bb1a667f6baf19151eb98e57a134"},
 ]
 dockerfile-parse = [
     {file = "dockerfile-parse-1.2.0.tar.gz", hash = "sha256:07e65eec313978e877da819855870b3ae47f3fac94a40a965b9ede10484dacc5"},
