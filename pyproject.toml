@@ -1,16 +1,17 @@
 [tool.poetry]
 name = "docker-compose-diagram"
-version = "0.2.4"
+version = "0.2.5"
 description = ""
 authors = ["Skonik <s.konik.dev@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
 PyYAML = "^5.3.4"
-diagrams = "^0.21.0"
+diagrams = "0.23.3"
 click = "^8.0.3"
 dockerfile-parse = "^1.2.0"
 rich = "^12.2.0"
+safety = "2.3.5"
 
 [tool.poetry.dev-dependencies]
 Sphinx = "~4.3.0"

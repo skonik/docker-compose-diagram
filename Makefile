@@ -33,6 +33,8 @@ lint: # Run code quality tools
 	poetry run isort docker_compose_diagram tests --check-only
 	# Check code security issues
 	poetry run bandit -r docker_compose_diagram
+
+safety:
 	# Check security issues with installed packages
 	poetry run safety check
 
@@ -57,6 +59,5 @@ ci.lint: # Run code quality tools inside ci
 	poetry run isort docker_compose_diagram --check-only
 	# Check code security issues
 	poetry run bandit -r docker_compose_diagram
-	# Check security issues with installed packages
-	poetry run safety check
+
 
