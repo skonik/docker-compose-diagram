@@ -1,5 +1,18 @@
-# docker-compose-diagram
-Script drawing a diagram of your docker-compose file
+<p align="center">
+  <img width="400" height="400" src="https://github.com/skonik/docker-compose-diagram/blob/master/docs/img/logo.png">
+</p>
+
+<h1 align="center">
+ docker-compose-diagram
+</h1>
+<p align="center">
+  <a href="https://github.com/docker/compose"> 🐳 docker-compose</a> + 🎨 <a href="https://diagrams.mingrammer.com/">diagrams </a>= docker-compose-diagram 🐳🎨
+
+</p>
+
+## Motivation
+This tool combines diagrams package and docker-compose allowing you to create diagrams out of docker-compose files. 
+The tool might be helpful for documentation purposes. 
 
 ## Installation
 
