@@ -18,20 +18,23 @@ The tool might be helpful for documentation purposes.
 
 Please install [graphviz](https://graphviz.gitlab.io/download/).
 Then install this util from pypi via pip or other package manager.
-```
+```console
 pip install docker-compose-diagram
 ```
 
 ## Usage
 
-```sh
-$ compose-diagram --file docker-compose.yml --direction=TB --nodesep=1.2
+```console
+compose-diagram --file docker-compose.yml --direction=TB --nodesep=1.2
 ```
 
 
 ## Example
 
 Let's say we have the following docker-compose file:
+
+<details>
+<summary>docker-compose.yml</summary>
 
 ```yaml
 version: "3.8"
@@ -164,6 +167,8 @@ volumes:
   mysql_data:
 
 ```
+
+</details>
 
 will create the following `.png` file
 ![docker-compose.png](./examples/docker-compose.png)
