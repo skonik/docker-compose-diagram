@@ -12,6 +12,10 @@ DEFAULT_ICON_CLASS = Rack
 
 
 def read_dockerfile_image(service_info):
+    image = service_info.get("image")
+    if image is not None:
+        return image
+
     build = service_info.get("build", {})
     context = build.get("context")
     if context is None:
