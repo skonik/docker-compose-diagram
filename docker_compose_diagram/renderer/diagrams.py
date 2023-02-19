@@ -2,9 +2,11 @@ from typing import List
 
 from diagrams import Cluster, Diagram
 
+from docker_compose_diagram.di_container.terminal import terminal
 from docker_compose_diagram.docker_compose.entities.service import \
     DockerComposeService
 from docker_compose_diagram.renderer.base import Renderer
+from docker_compose_diagram.renderer.constants import messages
 
 
 class DiagramsRenderer(Renderer):
@@ -26,3 +28,6 @@ class DiagramsRenderer(Renderer):
             with Cluster("docker-compose"):
                 for plugin in self.plugins:
                     plugin.execute(services, self.DRAWN_NODES)
+
+        message = messages.FILE_SAVED.format(filename=destination_file)
+        terminal.print(text=message, style="green")

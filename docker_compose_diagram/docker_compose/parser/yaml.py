@@ -2,6 +2,7 @@ from typing import List
 
 import yaml
 
+from docker_compose_diagram.di_container.terminal import terminal
 from docker_compose_diagram.docker_compose.entities.service import \
     DockerComposeService
 from docker_compose_diagram.docker_compose.parser.base import \
@@ -22,13 +23,17 @@ class YAMLBasedParser(DockerComposeParser):
             ].items():
                 image_name = read_dockerfile_image(service_info=service_definition)
 
-                service_entity = DockerComposeService(
+                service = DockerComposeService(
                     name=service_name,
                     image=image_name,
                     labels=service_definition.get("labels", {}),
                     depends_on=service_definition.get("depends_on", []),
                 )
-                deserialized_services.append(service_entity)
+
+                terminal.print(f"Service: {service.name}")
+                terminal.print(f"   Service: {service.labels}")
+
+                deserialized_services.append(service)
 
             return deserialized_services
 
