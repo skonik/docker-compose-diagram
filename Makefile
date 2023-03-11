@@ -47,7 +47,6 @@ test: # Run tests
 # --------- GitHub Actions CI ---------
 
 # Prevent running a file with same name
-.PHONY: test
 ci.test: # Run ci tests
 	poetry run pytest tests
 

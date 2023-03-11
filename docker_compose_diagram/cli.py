@@ -8,17 +8,8 @@ from docker_compose_diagram.renderer.base import Renderer
 from docker_compose_diagram.renderer.diagrams import DiagramsRenderer
 
 
-@click.command()
-@click.option("--file", default="docker-compose.yml", help="docker-compose file")
-@click.option(
-    "--direction",
-    default="TB",
-    type=click.Choice(["TB", "BT", "LR", "RL"], case_sensitive=True),
-)
-@click.option("--nodesep", default="1.0", type=click.FLOAT)
-def process_cli(file, direction, nodesep):
+def run(file, direction, nodesep):
     with terminal.status(name="Working.."):
-
         # Adapter. Renders final image using diagrams package
         renderer: Renderer = DiagramsRenderer(
             plugins=plugins,
@@ -38,6 +29,18 @@ def process_cli(file, direction, nodesep):
             source_file=file,
             destination_file="docker-compose",
         )
+
+
+@click.command()
+@click.option("--file", default="docker-compose.yml", help="docker-compose file")
+@click.option(
+    "--direction",
+    default="TB",
+    type=click.Choice(["TB", "BT", "LR", "RL"], case_sensitive=True),
+)
+@click.option("--nodesep", default="1.0", type=click.FLOAT)
+def process_cli(file, direction, nodesep):
+    run(file, direction, nodesep)
 
 
 if __name__ == "__main__":

@@ -45,19 +45,25 @@ class ServiceSelector:
     def all(self) -> List[DockerComposeService]:
         return list(self.docker_compose_services.values())
 
-    def group_by_cluster(self) -> Dict[Cluster, List[DockerComposeService]]:
+    def _clusterize_services(self) -> Dict[Cluster, List[DockerComposeService]]:
         cluster_name_to_services = defaultdict(list)
         for service in self.docker_compose_services.values():
             cluster_name_to_services[service.cluster].append(service)
+
+        return cluster_name_to_services
+
+    def group_by_cluster(self) -> Dict[Cluster, List[DockerComposeService]]:
+        cluster_name_to_services = self._clusterize_services()
 
         cluster_name_to_services.pop(None, None)
 
         return cluster_name_to_services
 
     def retrieve_not_clustered(self) -> List[DockerComposeService]:
-        clustered = self.group_by_cluster()
+        clustered = self._clusterize_services()
 
-        return clustered.get(None, [])
+        not_clustered_services = clustered.get(None, [])
+        return not_clustered_services
 
     def find_by_name(self, name: str) -> DockerComposeService:
         return self.docker_compose_services[name]
