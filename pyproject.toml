@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "docker-compose-diagram"
-version = "0.2.5"
+version = "0.2.6"
 description = ""
 authors = ["Skonik <s.konik.dev@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-PyYAML = "^5.3.4"
+PyYAML = "6.0.1"
 diagrams = "0.23.3"
 click = "^8.0.3"
 dockerfile-parse = "^1.2.0"
