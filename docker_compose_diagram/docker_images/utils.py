@@ -3,9 +3,11 @@ from os import path
 from typing import Any, Dict, Optional, Type, Union
 
 from diagrams import Node
+from diagrams.custom import Custom
 from diagrams.generic.compute import Rack
 from dockerfile_parse import DockerfileParser
 
+from docker_compose_diagram.constants import IMAGE_EXTENSION_RE
 from docker_compose_diagram.docker_images.patterns import DockerImagePattern
 
 DEFAULT_ICON_CLASS = Rack
@@ -49,6 +51,10 @@ def determine_diagram_render_class(
 ) -> Union[Type[DockerImagePattern], Type[Node]]:
     if image_name is None:
         return DEFAULT_ICON_CLASS
+
+    # in case if user provides "example.svg" as icon name
+    if IMAGE_EXTENSION_RE.match(image_name):
+        return Custom
 
     for subclass in DockerImagePattern.__subclasses__():
         re_match = re.search(subclass.pattern, image_name)
