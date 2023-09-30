@@ -1,6 +1,7 @@
 from typing import List
 
 from diagrams import Cluster, Node
+from diagrams.custom import Custom
 
 from docker_compose_diagram.docker_compose.entities.service import (
     DockerComposeService, ServiceSelector)
@@ -19,8 +20,13 @@ def draw_service(service: DockerComposeService) -> Node:
         image_name=image_name,
     )
 
+    # in case if user provides "example.svg" as icon name
+    kwargs = {}
+    if diagram_node_image_class is Custom:
+        kwargs["icon_path"] = image_name
+
     text_under_service = f"{service.name}\n{service.description}"
-    node_instance = diagram_node_image_class(text_under_service)
+    node_instance = diagram_node_image_class(text_under_service, **kwargs)
 
     return node_instance
 
