@@ -6,6 +6,7 @@ from typing import Any, Dict, List, Optional
 
 from docker_compose_diagram.docker_compose.constants.labels import Label
 
+
 # Typing Aliases
 Cluster = str
 

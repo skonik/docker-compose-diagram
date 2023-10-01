@@ -10,15 +10,48 @@ from diagrams.onprem.database import Mongodb, MySQL, PostgreSQL
 from diagrams.onprem.inmemory import Redis
 from diagrams.onprem.network import Caddy, Nginx, Traefik
 from diagrams.onprem.queue import Celery, Kafka, RabbitMQ
-from diagrams.programming.framework import (Angular, Backbone, Django, Ember,
-                                            FastAPI, Flask, Flutter, GraphQL,
-                                            Laravel, Micronaut, Rails, React,
-                                            Spring, Starlette, Vue)
-from diagrams.programming.language import (PHP, Bash, C, Cpp, Csharp, Dart,
-                                           Elixir, Erlang, Go, Java,
-                                           Javascript, Kotlin, Latex, Matlab,
-                                           NodeJS, Python, R, Ruby, Rust,
-                                           Scala, Swift, Typescript)
+from diagrams.programming.framework import (
+    Angular,
+    Backbone,
+    Django,
+    Ember,
+    FastAPI,
+    Flask,
+    Flutter,
+    GraphQL,
+    Laravel,
+    Micronaut,
+    Rails,
+    React,
+    Spring,
+    Starlette,
+    Vue,
+)
+from diagrams.programming.language import (
+    PHP,
+    Bash,
+    C,
+    Cpp,
+    Csharp,
+    Dart,
+    Elixir,
+    Erlang,
+    Go,
+    Java,
+    Javascript,
+    Kotlin,
+    Latex,
+    Matlab,
+    NodeJS,
+    Python,
+    R,
+    Ruby,
+    Rust,
+    Scala,
+    Swift,
+    Typescript,
+)
+
 
 DEFAULT_ICON_CLASS = Rack
 

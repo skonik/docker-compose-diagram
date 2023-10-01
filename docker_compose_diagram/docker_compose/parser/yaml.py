@@ -3,10 +3,8 @@ from typing import List
 import yaml
 
 from docker_compose_diagram.di_container.terminal import terminal
-from docker_compose_diagram.docker_compose.entities.service import \
-    DockerComposeService
-from docker_compose_diagram.docker_compose.parser.base import \
-    DockerComposeParser
+from docker_compose_diagram.docker_compose.entities.service import DockerComposeService
+from docker_compose_diagram.docker_compose.parser.base import DockerComposeParser
 from docker_compose_diagram.docker_images.utils import read_dockerfile_image
 
 

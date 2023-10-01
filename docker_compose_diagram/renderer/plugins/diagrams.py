@@ -4,9 +4,10 @@ from diagrams import Cluster, Node
 from diagrams.custom import Custom
 
 from docker_compose_diagram.docker_compose.entities.service import (
-    DockerComposeService, ServiceSelector)
-from docker_compose_diagram.docker_images.utils import \
-    determine_diagram_render_class
+    DockerComposeService,
+    ServiceSelector,
+)
+from docker_compose_diagram.docker_images.utils import determine_diagram_render_class
 from docker_compose_diagram.renderer.plugins.base import Plugin
 
 
