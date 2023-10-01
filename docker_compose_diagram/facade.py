@@ -1,5 +1,4 @@
-from docker_compose_diagram.docker_compose.parser.base import \
-    DockerComposeParser
+from docker_compose_diagram.docker_compose.parser.base import DockerComposeParser
 from docker_compose_diagram.renderer.base import Renderer
 
 

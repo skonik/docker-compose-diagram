@@ -2,6 +2,7 @@ import os.path
 
 from docker_compose_diagram import cli
 
+
 DOCKER_COMPOSE_FILE = "tests/docker-compose.dev.yml"
 NEW_FILE = "docker-compose.png"
 

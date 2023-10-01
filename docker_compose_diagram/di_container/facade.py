@@ -1,12 +1,14 @@
 """ This file holds dependencies for main facade. """
 from docker_compose_diagram.docker_compose.file_reader.base import FileReader
-from docker_compose_diagram.docker_compose.file_reader.standard import \
-    StandardFileReader
-from docker_compose_diagram.docker_compose.parser.base import \
-    DockerComposeParser
+from docker_compose_diagram.docker_compose.file_reader.standard import StandardFileReader
+from docker_compose_diagram.docker_compose.parser.base import DockerComposeParser
 from docker_compose_diagram.docker_compose.parser.yaml import YAMLBasedParser
 from docker_compose_diagram.renderer.plugins.diagrams import (
-    ClusteredNodesDrawer, DependenciesArrayDrawer, NotClusteredNodesDrawer)
+    ClusteredNodesDrawer,
+    DependenciesArrayDrawer,
+    NotClusteredNodesDrawer,
+)
+
 
 # FileReader adapter reads files. StandardFileReader uses os.open
 file_reader: FileReader = StandardFileReader()

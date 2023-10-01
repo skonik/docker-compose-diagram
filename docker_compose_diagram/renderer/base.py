@@ -1,8 +1,7 @@
 import abc
 from typing import Any, Dict, List
 
-from docker_compose_diagram.docker_compose.entities.service import \
-    DockerComposeService
+from docker_compose_diagram.docker_compose.entities.service import DockerComposeService
 from docker_compose_diagram.renderer.plugins.base import Plugin
 
 

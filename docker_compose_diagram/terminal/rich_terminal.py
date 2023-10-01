@@ -4,6 +4,7 @@ from rich.console import Console
 
 from docker_compose_diagram.terminal.base import Terminal
 
+
 console = Console()
 
 

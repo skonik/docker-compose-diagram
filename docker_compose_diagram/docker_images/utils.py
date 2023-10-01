@@ -10,6 +10,7 @@ from dockerfile_parse import DockerfileParser
 from docker_compose_diagram.constants import IMAGE_EXTENSION_RE
 from docker_compose_diagram.docker_images.patterns import DockerImagePattern
 
+
 DEFAULT_ICON_CLASS = Rack
 
 

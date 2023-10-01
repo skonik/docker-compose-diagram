@@ -1,8 +1,7 @@
 import abc
 from typing import List
 
-from docker_compose_diagram.docker_compose.entities.service import \
-    DockerComposeService
+from docker_compose_diagram.docker_compose.entities.service import DockerComposeService
 
 
 class Plugin(abc.ABC):

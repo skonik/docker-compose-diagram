@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "docker-compose-diagram"
-version = "0.3.0"
+version = "0.4.0"
 description = ""
 authors = ["Sergei Konik <s.konik.dev@gmail.com>"]
 
@@ -32,3 +32,13 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 compose-diagram = 'docker_compose_diagram:process_cli'
+
+
+
+[tool.isort]
+line_length = 100
+sections = ["FUTURE", "STDLIB", "DJANGO", "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"]
+multi_line_output = 3
+profile = "black"
+src_paths = "."
+lines_after_imports = 2

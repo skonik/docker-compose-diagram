@@ -7,6 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import os
 
+
 project = "docker-compose-diagram"
 copyright = "2022, Sergei Konik"
 author = "Sergei Konik"
