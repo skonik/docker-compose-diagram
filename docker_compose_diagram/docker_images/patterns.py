@@ -1,3 +1,5 @@
+import abc
+
 from diagrams.aws.database import Dynamodb
 from diagrams.aws.integration import SNS, SQS
 from diagrams.aws.storage import S3, Storage
@@ -52,11 +54,15 @@ from diagrams.programming.language import (
     Typescript,
 )
 
+from docker_compose_diagram.docker_images.auto_import_diagrams import (
+    register_all_icons_from_diagrams,
+)
+
 
 DEFAULT_ICON_CLASS = Rack
 
 
-class DockerImagePattern:
+class DockerImagePattern(abc.ABC):
     pattern = r""
     diagram_render_class = None
 
@@ -352,3 +358,6 @@ class CertificateImage(DockerImagePattern):
 class LoadBalancerImage(DockerImagePattern):
     pattern = r"^loadbalancer$"
     diagram_render_class = LoadBalancer
+
+
+diagrams_classes = register_all_icons_from_diagrams(base_class=DockerImagePattern)
