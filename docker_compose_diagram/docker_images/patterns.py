@@ -54,8 +54,8 @@ from diagrams.programming.language import (
     Typescript,
 )
 
-from docker_compose_diagram.docker_images.auto_import_diagrams import (
-    register_all_icons_from_diagrams,
+from docker_compose_diagram.docker_images.diagrams_nodes_importer import (
+    create_docker_image_patterns_from_diagrams,
 )
 
 
@@ -360,4 +360,6 @@ class LoadBalancerImage(DockerImagePattern):
     diagram_render_class = LoadBalancer
 
 
-diagrams_classes = register_all_icons_from_diagrams(base_class=DockerImagePattern)
+diagrams_classes = create_docker_image_patterns_from_diagrams(
+    base_class=DockerImagePattern
+)
